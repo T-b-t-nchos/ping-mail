@@ -26,7 +26,7 @@ jobs:
                 apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                 accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                 gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-                command: pages deploy . --project-name=t-b-t-nchos --branch=master
+                command: pages deploy . --project-name=ping-mail --branch=master
 
           - name: Deploy Preview
             if: github.ref != 'refs/heads/master'
@@ -35,4 +35,4 @@ jobs:
                 apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                 accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                 gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-                command: pages deploy . --project-name=t-b-t-nchos --branch=${{ github.ref_name }}
+                command: pages deploy . --project-name=ping-mail --branch=${{ github.ref_name }}
