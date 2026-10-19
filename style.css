@@ -1,0 +1,363 @@
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("./assets/fonts/ZillaSlab-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Zilla Slab";
+    src: url("./assets/fonts/ZillaSlab-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Kiwi Maru";
+    src: url("./assets/fonts/KiwiMaru-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Noto Emoji";
+    src: url("./assets/fonts/NotoEmoji-Regular-subset.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "LINE Seed JP";
+    src: url("./assets/fonts/LINESeedJP-ExtraBold-subset.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    color-scheme: light dark;
+
+    --page-bg: light-dark(#ffffff, #111211);
+    --back-bg: light-dark(#fdfdfd, #131413);
+
+    --particle: light-dark(#ebebeb, #232323);
+    --particle-opacity: 0.48;
+    --particle-link-opacity: 0.15;
+
+    --line: light-dark(#cccccc, #646464);
+    --ink: light-dark(#111211, #f0f0f0);
+    --sub-ink: light-dark(#232323, #eaeaea);
+    --particle: light-dark(#222222, #ebebeb);
+    --accent: light-dark(#4c8054, #73ab79);
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    color: var(--page-fg);
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--page-bg);
+    color: var(--ink);
+
+    font-family: "Zilla Slab", "Kiwi Maru", "Noto Emoji", serif;
+}
+
+body, section, header, footer, main, div {
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+a {
+    text-decoration: none;
+    color: var(--sub-ink);
+}
+
+/*hero*/
+/*-----------------------------------------------------------------------------------------*/
+.hero {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    min-height: 620px;
+    overflow: hidden;
+    background: var(--back-bg);
+    isolation: isolate;
+}
+
+#particles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+}
+
+.shape {
+    position: absolute;
+    z-index: 0;
+    color: var(--line);
+    font-family:
+    "LINE Seed JP",
+    "LINE Seed",
+    "Noto Sans JP",
+    Arial,
+    sans-serif;
+    font-weight: 800;
+    user-select: none;
+    pointer-events: none;
+}
+
+.shape-n {
+    top: -16vw;
+    left: -5vw;
+    font-size: 27vw;
+}
+
+.shape-t {
+    right: -3vw;
+    bottom: -15vw;
+    font-size: 27vw;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.fit-text {
+    position: relative;
+    left: 50%;
+    display: block;
+    width: max-content;
+    margin: 0;
+    white-space: nowrap;
+    transform-origin: center center;
+}
+
+.title {
+    margin: 0;
+    font-size: clamp(1.25rem, 1.3vw, 1.6rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0.18em;
+}
+
+.subtitle {
+    margin: 0.3rem 0 0;
+    font-size: clamp(0.8rem, 0.9vw, 1rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.14em;
+}
+
+
+/*common (section)*/
+/*-----------------------------------------------------------------------------------------*/
+.section {
+    width: 100%;
+    background: var(--page-bg);
+}
+
+.section-heading {
+    margin-bottom: clamp(3rem, 3vw, 3.4rem);
+}
+
+.section-label {
+    display: inline-block;
+    font-size: clamp(0.9rem, 1.4vw, 1.4rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.14em;
+}
+
+.section-inner {
+    width: min(88vw, 1180px);
+    margin-inline: auto;
+    padding: clamp(2rem, 7vw, 4.5rem) 0 clamp(5rem, 11vw, 9rem);
+}
+
+.section h3 {
+    font-weight: 300;
+    letter-spacing: 0.08em;
+}
+
+
+/*fotter*/
+/*-----------------------------------------------------------------------------------------*/
+
+footer {
+    width: 100%;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--sub-ink);
+    background: var(--back-bg);
+}
+
+fotter button {
+    border: none;
+}
+
+footer .only-emoji {
+    font-size-adjust: 0.4;
+}
+
+
+/*other*/
+/*-----------------------------------------------------------------------------------------*/
+.bottom-space {
+    width: 100%;
+    height: 10vh;
+    min-height: 60px;
+    background: var(--page-bg);
+}
+
+
+.hv-ul {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.hv-ul::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.hv-ul:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: 520px;
+    }
+
+    .shape-n {
+        top: -15vw;
+        left: -10vw;
+        font-size: 42vw;
+    }
+
+    .shape-t {
+        right: -8vw;
+        bottom: -17vw;
+        font-size: 42vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 500px;
+    }
+
+    .shape-n {
+        top: -12vw;
+        left: -18vw;
+        font-size: 55vw;
+    }
+
+    .shape-t {
+        right: -15vw;
+        bottom: -14vw;
+        font-size: 55vw;
+    }
+
+    .title {
+        letter-spacing: 0.13em;
+    }
+
+    .subtitle {
+        letter-spacing: 0.09em;
+    }
+
+    .section-inner {
+        width: min(86vw, 1180px);
+    }
+
+    .list-item {
+        grid-template-columns: 2.4rem minmax(0, 1fr);
+        column-gap: 1rem;
+    }
+
+    .list-view {
+        display: none;
+    }
+
+    .list-content h2 {
+        line-height: 1.12;
+    }
+
+    .history-timeline::before {
+        left: 1rem;
+    }
+
+    .history-timeline::after {
+        left: calc(1rem - 3px);
+    }
+
+    .history-event:last-child::after {
+        left: calc(1rem - 3px);
+    }
+
+    .history-event {
+        display: block;
+        min-height: 0;
+        padding: 0 0 3rem 3rem;
+    }
+
+    .history-event::before {
+        left: calc(1rem - 3.75px);
+    }
+
+    .history-event:nth-child(odd) .history-content,
+    .history-event:nth-child(even) .history-content {
+        padding: 0;
+        text-align: left;
+    }
+
+    .history-event:nth-child(odd) .history-date {
+        justify-content: flex-start;
+    }
+}
+
